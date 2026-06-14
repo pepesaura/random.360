@@ -33,3 +33,9 @@ Haz clic en Implementar, autoriza los permisos que te pida Google y copia la URL
 Ahora, en tu archivo HTML, usarás fetch de JavaScript para llamar a esa URL. Cada vez que la página se cargue (o se pulse un botón), el Apps Script calculará una fila aleatoria y te la enviará.
 
 Aquí tienes un ejemplo de diseño limpio usando un botón para cargar nuevos registros sin recargar la página:
+
+_**index.html**_
+
+**¿Por qué esta solución es la mejor?**
+
+💡 Ventaja Clave: Al hacer que el "sorteo" aleatorio ocurra del lado del servidor (en Google Apps Script), tu página web solo descarga un único registro cada vez. Si tuvieras 5,000 filas en tu hoja de cálculo y las descargaras todas en el HTML para elegir una con JavaScript, la página web se volvería muy lenta y pesada.
