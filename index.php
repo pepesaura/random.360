@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abriendo enlace favorito...</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f8f9fa;
+            margin: 0;
+            color: #333;
+        }
+        .loading-box {
+            text-align: center;
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #09f;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 15px;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="loading-box">
+        <div class="spinner"></div>
+        <p>Un momento, que nos vamos...</p>
+    </div>
+
+    <script>
+        // REEMPLAZA ESTA URL con tu nueva URL de Google Apps Script
+        const URL_API = "https://script.google.com/macros/s/AKfycbyofkdz_nAGqfNDB--wlpCNFjGavtst6O2kDC7qDyXRxeuO2r3Ysw1U3lMnEiEVPjZ7Uw/exec";
+
+        async function redireccionarAleatorio() {
+            try {
+                const respuesta = await fetch(URL_API);
+                const datos = await respuesta.json();
+                
+                if (datos.url) {
+                    // Asegurar que la URL empiece con http o https para que no intente
+                    // buscar el enlace dentro de tu propio hosting
+                    let destino = datos.url;
+                    if (!destino.startsWith('http://') && !destino.startsWith('https://')) {
+                        destino = 'https://' + destino;
+                    }
+                    
+                    // Hace el salto mágico a la web favorita
+                    window.location.href = destino;
+                } else {
+                    document.body.innerHTML = "<p>Error: No se recibió una URL válida de Google Sheets.</p>";
+                }
+
+            } catch (error) {
+                console.error("Error en la redirección:", error);
+                document.body.innerHTML = "<p>Hubo un error al conectar con tus enlaces favoritos.</p>";
+            }
+        }
+
+        // Ejecutar de inmediato al cargar la página
+        redireccionarAleatorio();
+    </script>
+</body>
+</html>
