@@ -6,9 +6,9 @@ Aquí tienes el paso a paso y el código listo para usar.
 
 **Paso 1: Configurar Google Sheets y el Apps Script**
 
-Abre tu hoja de Google Sheets y asegúrate de que la primera fila tenga los encabezados (por ejemplo: ID, Frase, Autor).
+En tu hoja de cálculo, asegúrate de tener una columna llamada **URL** (en la primera fila, respetando las mayúsculas).
 
-En el menú superior, ve a Extensiones > Apps Script.
+En el menú superior, ve a **Extensiones > Apps Script**.
 
 Borra el código que aparece por defecto y pega el siguiente script:
 
@@ -16,15 +16,15 @@ Borra el código que aparece por defecto y pega el siguiente script:
 
 **Implementar como Web App:**
 
-Haz clic en el botón Implementar (arriba a la derecha) y selecciona Nueva implementación.
+Haz clic en el botón **Implementar** (arriba a la derecha) y selecciona Nueva implementación.
 
-En el tipo de implementación, elige Aplicación web.
+En el tipo de implementación, elige **Aplicación web**.
 
 Configura los accesos:
 
 Ejecutar como: Tu cuenta (yo).
 
-Quién tiene acceso: Cualquiera (esto es crucial para que tu web pueda leerlo sin autenticarse).
+Quién tiene acceso: **Cualquiera** (esto es crucial para que tu web pueda leerlo sin autenticarse).
 
 Haz clic en Implementar, autoriza los permisos que te pida Google y copia la URL de la aplicación web que te proporcionará al final.
 
